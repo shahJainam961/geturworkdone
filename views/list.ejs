@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2Do List</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    
+    <div class="box" id="heading">
+        <h1><%= dayName %></h1>
+    </div>
+    <div class="categories box">
+        
+        <%if(cat==0){ %>
+            <form action="/ho" method="post">
+                <button type="submit" class="ho">Household</button>
+            </form>
+            <form action="/ow" method="post">
+                <button type="submit" class="ow">OfficeWork</button>
+            </form>
+        <% }%>
+        <%if(cat==1){ %>
+            <form action="/ho" method="post">
+                <button type="submit" class="ho" style="background-color: transparent;color: #A683E3;">Household</button>
+            </form>
+            <form action="/ow" method="post">
+                <button type="submit" class="ow" style="background-color: #A683E3;color: #fff;">OfficeWork</button>
+            </form>
+        <% }%>
+        
+    </div>
+    <div class="box">
+        <form class="item" action="/" method="post">
+            <input type="text" autocomplete="off" name="newItem" placeholder="New Item">
+            <button type="submit" class="add">+</button>
+        </form>
+        <% for(var i=0;i<newDo.length;i++){%>
+            <div class="item">
+                <input type="checkbox">
+                <p><%= newDo[i] %></p>
+            </div>  
+        <%}%>
+    </div>
+   
+    
+     
+    
+    
+</body>
+</html>
